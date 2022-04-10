@@ -7,10 +7,13 @@ class DataImport:
         with open(url) as data_file:
             content = data_file.readlines()
         row = {}
+        patient_ids = []
         imported_data = []
         for line in content:
             value = line.strip()[3:]
             if (value == start_line):
+                if row and 'id' in row and row['id'] not in patient_ids:
+                    imported_data.append(row)
                 row={}
                 continue
             code = value[:4]
