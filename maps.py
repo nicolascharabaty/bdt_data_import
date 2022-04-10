@@ -10,7 +10,7 @@ patient_keys = {
       'label':'sentence_length'
    },
    '3110' :{
-       'type': 'str',
+       'type': 'int',
        'label': 'gender'
    },
    '3101' : {
@@ -24,6 +24,30 @@ patient_keys = {
    '3103' : {
        'type' : 'date',
        'label' : 'dob'
+   },
+   '3104' : {
+       'type' : 'str',
+       'label' : 'title'
+   },
+   '3105' :{
+       'type' : 'str',
+       'label' : 'insurance_number'
+   },
+    '3106' :{
+       'type' : 'str',
+       'label' : 'residence'
+   },
+   '3107' :{
+       'type' : 'str',
+       'label' : 'street'
+   },
+   '3109' :{
+       'type' : 'str',
+       'label' : 'house_number'
+   },
+   '3119' :{
+       'type' : 'str',
+       'label' : 'insurance_number_egk'
    }
 }
 
