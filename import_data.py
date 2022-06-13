@@ -45,18 +45,17 @@ class DataImport:
         return row
 
     def start_app(self, url):
-        with open(url) as data_file:
-            content = data_file.readlines()
         row = {}
         imported_data = []
-        for line in content:
-            value = self.strip_value_from_line(line)
-            if (value == start_line):
-                if self.patient_dont_exist(row):
-                    self.patient_ids.append(row['id'])
-                    imported_data.append(row)
-                row={}
-                continue
-            code = self.get_code_from_value(value)
-            row = self.fill_row_from_value_add_code(row, value, code)
+        with open(url) as data_file:
+            for line in data_file:
+                value = self.strip_value_from_line(line)
+                if (value == start_line):
+                    if self.patient_dont_exist(row):
+                        self.patient_ids.append(row['id'])
+                        imported_data.append(row)
+                    row={}
+                    continue
+                code = self.get_code_from_value(value)
+                row = self.fill_row_from_value_add_code(row, value, code)
         return imported_data
